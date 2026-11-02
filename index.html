@@ -46,7 +46,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
 <style>
-/* Editorial portfolio. White page, Dark Blue hero, Sea Blue for fine rules and details, Stone for badges, Grey for body text, Gold only as a small highlight. One typeface. */
+/* Editorial portfolio. White page, Dark Blue hero, Sea Blue for fine rules and details, Stone for badges, card tint and footer, Grey for body text, Gold only as a small highlight. One typeface. */
 :root {
   color-scheme: light;
   --dark-blue: #1b1f54;
@@ -55,15 +55,16 @@
   --grey: #575756;
   --gold: #fbba00;
   --white: #ffffff;
-  --rule: #dfcab1;
-  --rule-strong: #d9c4a9;
+  --rule: #e9dfd2;
+  --rule-strong: #e0d3c2;
+  --card: #fcf9f5;
   --hover: #f7f9fa;
   --font: "Mulish", Arial, Helvetica, sans-serif;
   --measure: 68ch;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--stone); color: var(--grey); font-family: var(--font); font-size: 17.5px; line-height: 1.7; font-weight: 400; }
+body { margin: 0; background: var(--white); color: var(--grey); font-family: var(--font); font-size: 17.5px; line-height: 1.7; font-weight: 400; }
 h1, h2, h3, h4 { font-family: var(--font); color: var(--dark-blue); margin: 0; text-wrap: balance; overflow-wrap: anywhere; }
 p { margin: 0; }
 a { color: var(--dark-blue); text-decoration: underline; text-decoration-color: var(--sea); text-decoration-thickness: 1.5px; text-underline-offset: 4px; font-weight: 700; overflow-wrap: anywhere; }
@@ -89,10 +90,10 @@ a:hover { text-decoration-color: var(--dark-blue); text-decoration-thickness: 2p
 /* sections */
 main section { padding-block: 88px 0; }
 main section:last-of-type { padding-bottom: 96px; }
-.section-head { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--dark-blue); margin-bottom: 8px; }
+.section-head { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--dark-blue); margin-bottom: 8px; }
 .section-head .num { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sea); }
 .section-head h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
-.section-intro { grid-column: 2; max-width: var(--measure); margin-top: 10px; }
+.section-intro { flex-basis: 100%; max-width: var(--measure); margin-top: 10px; }
 
 /* rows (publications, communications) */
 .rows { list-style: none; margin: 0; padding: 0; }
@@ -104,14 +105,15 @@ main section:last-of-type { padding-bottom: 96px; }
 .row .cite { font-style: italic; }
 .row .links { margin-top: 12px; }
 
-.badge { display: inline-block; background: #e8d3b8; color: var(--dark-blue); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5; padding: 2px 10px; border-radius: 3px; margin-right: 10px; vertical-align: 1px; }
+.badge { display: inline-block; background: var(--stone); color: var(--dark-blue); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5; padding: 2px 10px; border-radius: 3px; margin-right: 10px; vertical-align: 1px; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 26px; font-size: 0.95rem; }
 
 /* cards */
 .subhead { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; margin: 56px 0 18px; }
 .subhead h3 { grid-column: 2; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark-blue); }
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-left: 232px; }
-.card { background: var(--white); border: 1px solid var(--rule-strong); border-top: 3px solid var(--sea); border-radius: 6px; padding: 26px 28px 24px; display: flex; flex-direction: column; gap: 10px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+#clinic .subhead { display: block; margin: 44px 0 16px; }
+.card { background: var(--card); border: 1px solid var(--rule); border-top: 3px solid var(--sea); border-radius: 6px; padding: 26px 28px 24px; display: flex; flex-direction: column; gap: 10px; }
 .card.featured { border-top-color: var(--dark-blue); }
 .card.wide { grid-column: 1 / -1; }
 .card .when { font-size: 0.85rem; font-weight: 700; color: var(--sea); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
@@ -120,10 +122,10 @@ main section:last-of-type { padding-bottom: 96px; }
 .card .meta { font-size: 0.92rem; }
 .card p { max-width: var(--measure); }
 .card .links { margin-top: auto; padding-top: 10px; }
-.card:hover { border-color: #c7ad8c; box-shadow: 0 1px 2px rgba(27, 31, 84, 0.06); }
+.card:hover { border-color: var(--rule-strong); box-shadow: 0 2px 10px rgba(27, 31, 84, 0.07); }
 
 /* seminars */
-.seminars { margin-left: 232px; }
+.seminars { margin-left: 0; }
 .year { border-bottom: 1px solid var(--rule); }
 .year.current { padding: 26px 0 18px; }
 .year.current h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
@@ -144,23 +146,21 @@ details.year[open] { padding-bottom: 14px; }
 .timeline .who { font-size: 0.92rem; margin-top: 2px; }
 .timeline p { font-size: 0.95rem; margin-top: 4px; max-width: var(--measure); }
 
-footer { border-top: 1px solid var(--rule); }
+footer { background: var(--stone); color: var(--dark-blue); }
 footer .container { padding-block: 26px 40px; font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 
 /* tablet */
 @media (max-width: 960px) {
   .hero .container { grid-template-columns: minmax(0, 1fr) 240px; gap: 44px; padding-block: 64px 68px; }
-  .section-head, .row, .subhead { grid-template-columns: 140px minmax(0, 1fr); gap: 24px; }
-  .cards, .seminars { margin-left: 164px; }
+  .row, .subhead { grid-template-columns: 140px minmax(0, 1fr); gap: 24px; }
 }
 /* mobile */
 @media (max-width: 720px) {
   body { font-size: 17px; }
   .hero .container { grid-template-columns: 1fr; gap: 32px; padding-block: 44px 52px; }
   .portrait { order: -1; max-width: 220px; }
-  .section-head, .row, .subhead { grid-template-columns: 1fr; gap: 6px; }
-  .section-intro, .subhead h3 { grid-column: 1; }
-  .cards, .seminars { margin-left: 0; }
+  .row, .subhead { grid-template-columns: 1fr; gap: 6px; }
+  .subhead h3 { grid-column: 1; }
   .cards { grid-template-columns: 1fr; }
   .card { padding: 22px 20px 20px; }
   .timeline li { grid-template-columns: 1fr; gap: 2px; }
@@ -204,8 +204,8 @@ main section[id] { scroll-margin-top: 76px; }
 .memberships h3 { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
 
 /* teaching */
-.teach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-left: 232px; padding-top: 22px; }
-.teach .block { background: var(--white); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 22px 24px; }
+.teach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding-top: 22px; }
+.teach .block { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 22px 24px; }
 .teach .block.wide { grid-column: 1 / -1; }
 .sitenav .short { display: none; }
 .teach h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
@@ -213,25 +213,39 @@ main section[id] { scroll-margin-top: 76px; }
 .teach li + li { margin-top: 4px; }
 
 /* seminars: upcoming */
-.upcoming { margin-left: 232px; padding: 22px 0 6px; }
+.upcoming { padding: 22px 0 6px; }
 .upcoming h3, .past-head { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; }
-.past-head { margin: 26px 0 8px 232px; }
-.event-card { background: var(--white); border: 1px solid var(--rule-strong); border-left: 4px solid var(--gold); border-radius: 6px; padding: 20px 24px; display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 6px 24px; }
+.past-head { margin: 26px 0 8px; }
+.event-card { background: var(--card); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: 6px; padding: 20px 24px; display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 6px 24px; }
 .event-card + .event-card { margin-top: 14px; }
 .event-card time { font-weight: 800; color: var(--dark-blue); font-variant-numeric: tabular-nums; }
 .event-card h4 { font-size: 1.15rem; font-weight: 800; line-height: 1.35; }
 .event-card .details { font-size: 0.95rem; margin-top: 4px; }
 .flag { display: inline-block; background: var(--gold); color: var(--dark-blue); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 9px; border-radius: 3px; margin-bottom: 6px; }
 
+/* card detail, collapsed by default */
+.card details.more { font-size: 0.95rem; }
+.card details.more summary { list-style: none; cursor: pointer; display: inline-flex; gap: 6px; font-weight: 700; color: var(--dark-blue); }
+.card details.more summary::-webkit-details-marker { display: none; }
+.card details.more summary::before { content: "+"; width: 1em; color: var(--sea); }
+.card details.more[open] summary::before { content: "\2212"; }
+.card details.more summary:hover { text-decoration: underline; text-decoration-color: var(--sea); text-underline-offset: 4px; }
+.card details.more > * + * { margin-top: 10px; }
+.card details.more > summary + * { margin-top: 10px; }
+
+/* mobile nav: fade signals that the links scroll */
+@media (max-width: 860px) {
+  .sitenav ul { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); padding-right: 28px; }
+}
+
 /* contact */
-.contact-block { margin-left: 232px; padding-top: 26px; display: grid; gap: 18px; }
+.contact-block { padding-top: 26px; display: grid; gap: 18px; }
 .contact-block .email { font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 800; }
 .contact-block .label { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-bottom: 2px; }
 
 @media (max-width: 960px) {
   .about { grid-template-columns: 140px minmax(0, 1fr); gap: 24px; }
-  .memberships, .teach, .upcoming, .contact-block { margin-left: 164px; }
-  .past-head { margin-left: 164px; }
+  .memberships { margin-left: 164px; }
   .sitenav ul { gap: 4px 16px; }
 }
 @media (max-width: 860px) {
@@ -247,8 +261,7 @@ main section[id] { scroll-margin-top: 76px; }
 }
 @media (max-width: 720px) {
   .about { grid-template-columns: 1fr; gap: 6px; padding-top: 52px; }
-  .memberships, .teach, .upcoming, .contact-block { margin-left: 0; }
-  .past-head { margin-left: 0; }
+  .memberships { margin-left: 0; }
   .teach { grid-template-columns: 1fr; }
   .event-card { grid-template-columns: 1fr; padding: 18px 18px; }
 }
@@ -349,14 +362,16 @@ main section[id] { scroll-margin-top: 76px; }
         <span class="when">2025/26</span>
         <h4>SOAS Environmental Justice Clinic Annual Report 2025/26</h4>
         <p class="meta"><span class="badge">Co-coordinator</span>SOAS Environmental Justice Clinic</p>
-        <p>Records a year of one legal advice clinic and five policy projects, with partners including the Environmental Law Foundation, Lawyers for Nature, Legal Response International, Globalfields and Melinda Janki, on Rights of Nature, international climate change law, policy and ecological economics.</p>
+        <p>Records a year of one legal advice clinic and five policy projects on Rights of Nature, international climate change law, policy and ecological economics.</p>
+        <details class="more"><summary>Partners</summary><p>The Environmental Law Foundation, Lawyers for Nature, Legal Response International, Globalfields and Melinda Janki.</p></details>
         <div class="links"><a href="reports/soas-environmental-justice-clinic-annual-report-2025-26.pdf" target="_blank" rel="noopener" aria-label="Read report: Clinic Annual Report 2025/26 (PDF)">Read report (PDF)</a></div>
       </article>
       <article class="card featured">
         <span class="when">2025/26</span>
         <h4>SOAS Environmental Justice Clinic: Advancing Innovative Legal Clinics for Ecological Justice</h4>
         <p class="meta"><span class="badge">Co-coordinator</span>Workshop report, prepared by Chlöe Jayne Prescott</p>
-        <p>Reports a May 2026 workshop in which students, academics and partner organisations reviewed the Clinic since its 2022 launch, during which it has engaged more than 70 students and eight partner organisations. It sets four priorities: long-term partnerships, reflective learning, broader participation and deeper community engagement, ahead of a credit-bearing clinical module from 2027/28.</p>
+        <p>Reports a May 2026 workshop in which students, academics and partner organisations reviewed the Clinic since its 2022 launch, during which it has engaged more than 70 students and eight partner organisations.</p>
+        <details class="more"><summary>Priorities</summary><p>It sets four priorities: long-term partnerships, reflective learning, broader participation and deeper community engagement, ahead of a credit-bearing clinical module from 2027/28.</p></details>
         <div class="links"><a href="reports/advancing-innovative-legal-clinics-for-ecological-justice-2025-26.pdf" target="_blank" rel="noopener" aria-label="Read report: Advancing Innovative Legal Clinics for Ecological Justice (PDF)">Read report (PDF)</a></div>
       </article>
     </div>
@@ -367,17 +382,23 @@ main section[id] { scroll-margin-top: 76px; }
         <span class="when">2025–26</span>
         <h4>A Charter for the River Thames</h4>
         <p class="meta"><span class="badge">Co-supervisor</span>LSE Sustainability Law and Policy Clinic, intercollegiate, with the Environmental Law Foundation</p>
-        <p>Three reports, April 2026, testing legal routes to a Thames Charter that treats the river as a stakeholder in decisions affecting it. The project was London's first intercollegiate environmental law clinic, with LSE, King's, UCL, SOAS and Birkbeck. Its strands looked at a joint borough arrangement under the Local Government Act 1972, at byelaw powers, and at bringing the Thames into decision-making procedures.</p>
-        <p>I co-supervised the decision-making strand with Dr Marie Petersmann. Its team compared three routes for giving the Thames a voice within the Greater London Authority: representation through the Mayoral team, an advisory role alongside the London Assembly Environment Committee, and integration into existing strategies such as the London Plan. They concluded that strategy-based integration is likely the most feasible first step.</p>
+        <p>Three reports, April 2026, testing legal routes to a Thames Charter that treats the river as a stakeholder in decisions affecting it, from London's first intercollegiate environmental law clinic. I co-supervised the decision-making strand with Dr Marie Petersmann.</p>
+        <details class="more"><summary>About the project and strand</summary>
+        <p>The clinic brought together LSE, King's, UCL, SOAS and Birkbeck. Its strands looked at a joint borough arrangement under the Local Government Act 1972, at byelaw powers, and at bringing the Thames into decision-making procedures.</p>
+        <p>The decision-making strand compared three routes for giving the Thames a voice within the Greater London Authority: representation through the Mayoral team, an advisory role alongside the London Assembly Environment Committee, and integration into existing strategies such as the London Plan. They concluded that strategy-based integration is likely the most feasible first step.</p>
         <p class="team">Strand team: Josie Butcher, Sarah Cooper, Julia Peetz, Hazal Pekdemir, Catalina Racovita and Kinjell Singh.</p>
+        </details>
         <div class="links"><a href="https://www.lse.ac.uk/global-school-of-sustainability/themes/mobilising-political-legal-governance-systems/clinic/intercollegiate/a-charter-for-the-river-thames" target="_blank" rel="noopener">Project and reports</a></div>
       </article>
       <article class="card">
         <span class="when">2025/26</span>
         <h4>Practitioners’ Guide: The Potential for Nature (Land) “Owning Itself” in the United Kingdom</h4>
         <p class="meta"><span class="badge">Co-supervisor</span>SOAS Clinic with Lawyers for Nature</p>
-        <p>A practitioners’ guide on whether land could “own itself” in the UK. The team assessed comparative models and English land law and concluded that land cannot literally own itself, because it lacks legal personality, but that charitable trusts, conservation covenants and purpose-driven stewardship structures may approximate some of its aims.</p>
+        <p>A practitioners’ guide on whether land could “own itself” in the UK.</p>
+        <details class="more"><summary>Findings and team</summary>
+        <p>The team assessed comparative models and English land law and concluded that land cannot literally own itself, because it lacks legal personality, but that charitable trusts, conservation covenants and purpose-driven stewardship structures may approximate some of its aims.</p>
         <p class="team">Team: Lina Zeitoun, Beatrice Stuart Fisher, Flavia Russo, Tom Crumbie and Jeffrey Cheung. Co-supervised with Miguel Camilo Cuba Pinto.</p>
+        </details>
         <div class="links"><a href="reports/soas-environmental-justice-clinic-annual-report-2025-26.pdf" target="_blank" rel="noopener">Summary in the Annual Report (PDF)</a></div>
       </article>
       <article class="card">
